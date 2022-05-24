@@ -16,7 +16,7 @@ setup(
         Pybind11Extension(
             name="pytree",
             sources=["pytree/csrc/pytree_bindings.cpp"],
-            include_dirs=["pytree/csrc/"],
+            include_dirs=["include"],
         )
     ],
     cmdclass={
