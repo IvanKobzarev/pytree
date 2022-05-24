@@ -7,7 +7,7 @@ from setuptools import Extension, setup
 
 setup(
     name="pyderevo",
-    version="0.0.3",
+    version="0.0.7",
     author="Ivan Kobzarev",
     author_email="ivan.kobzarev@gmail.com",
     description="Containers manipulation library",
@@ -19,6 +19,8 @@ setup(
             include_dirs=["include"],
         )
     ],
+    setup_requires=["pybind11"],
+    install_requires=["pybind11"],
     cmdclass={
         "build_ext": build_ext,
     },
