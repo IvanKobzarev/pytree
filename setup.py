@@ -7,7 +7,7 @@ from setuptools import Extension, setup
 
 setup(
     name="pyderevo",
-    version="0.0.7",
+    version="0.0.8",
     author="Ivan Kobzarev",
     author_email="ivan.kobzarev@gmail.com",
     description="Containers manipulation library",
@@ -17,6 +17,8 @@ setup(
             name="pytree",
             sources=["pytree/csrc/pytree_bindings.cpp"],
             include_dirs=["include"],
+            extra_compile_args=["-O3"],
+            language="c++",
         )
     ],
     setup_requires=["pybind11"],

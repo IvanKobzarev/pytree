@@ -2,6 +2,8 @@ import sys
 from abc import ABC
 from timeit import Timer
 
+import jax._src.tree_util as jax_pytree
+
 import pytree
 import torch
 import torch.utils._pytree as torch_pytree
@@ -32,6 +34,9 @@ class Flatten(BenchBase):
     def torch_pytree(self, x):
         torch_pytree.tree_flatten(x)
 
+    def jax_pytree(self, x):
+        jax_pytree.tree_flatten(x)
+
     def __str__(self):
         return self.__class__.__name__
 
@@ -54,6 +59,7 @@ def metrics(population):
 def main() -> int:
     libs = [
         "torch_pytree",
+        "jax_pytree",
         "pytree",
     ]
 
